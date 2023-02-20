@@ -1,0 +1,73 @@
+DFS "EXAMPLES" FOLDER:
+./run.sh -restarts dfs 2 < examples/test0.col
+./run.sh -restarts dfs 4 < examples/test1.col
+./run.sh -restarts dfs 4 < examples/test2.col
+./run.sh -restarts dfs 256 < examples/queen16_16.col
+./run.sh -restarts dfs 144 < examples/queen12_12.col
+./run.sh -restarts dfs 64 < examples/queen8_8.col
+./run.sh -restarts dfs 25 < examples/queen5_5.col
+./run.sh -restarts dfs 450 < examples/le450_15b.col
+./run.sh -restarts dfs 100 < examples/graph_100_03.col
+./run.sh -restarts dfs 1000 < examples/graph_1000_001.col
+././run.sh -restarts dfs 1000 < examples/graph_1000_01.col
+././run.sh -restarts dfs 32 < examples/graph_1000_01.col
+DFS K_GRAPHS FOLDER:
+./run.sh -restarts dfs 10 < k_graphs/k10
+./run.sh -restarts dfs 3 < k_graphs/k3
+./run.sh -restarts dfs 30 < k_graphs/k30
+./run.sh -restarts dfs 4 < k_graphs/k4
+./run.sh -restarts dfs 5 < k_graphs/k5
+./run.sh -restarts dfs 6 < k_graphs/k6
+./run.sh -restarts dfs 7 < k_graphs/k7
+./run.sh -restarts dfs 8 < k_graphs/k8
+./run.sh -restarts dfs 9 < k_graphs/k9
+
+
+FC "EXAMPLES" FOLDER:
+./run.sh -restarts fc 2 < examples/test0.col
+./run.sh -restarts fc 4 < examples/test1.col
+./run.sh -restarts fc 4 < examples/test2.col
+./run.sh -restarts fc 256 < examples/queen16_16.col
+./run.sh -restarts fc 144 < examples/queen12_12.col
+./run.sh -restarts fc 64 < examples/queen8_8.col
+./run.sh -restarts fc 25 < examples/queen5_5.col
+./run.sh -restarts fc 450 < examples/le450_15b.col
+./run.sh -restarts fc 100 < examples/graph_100_03.col
+./run.sh -restarts fc 1000 < examples/graph_1000_001.col
+./run.sh -restarts fc 1000 < examples/graph_1000_01.col
+./run.sh -restarts fc 32 < examples/graph_1000_01.col
+FC K_GRAPHS FOLDER:
+./run.sh -restarts fc 10 < k_graphs/k10
+./run.sh -restarts fc 3 < k_graphs/k3
+./run.sh -restarts fc 30 < k_graphs/k30
+./run.sh -restarts fc 4 < k_graphs/k4
+./run.sh -restarts fc 5 < k_graphs/k5
+./run.sh -restarts fc 6 < k_graphs/k6
+./run.sh -restarts fc 7 < k_graphs/k7
+./run.sh -restarts fc 8 < k_graphs/k8
+./run.sh -restarts fc 9 < k_graphs/k9
+
+
+MCV "EXAMPLES" FOLDER:
+./run.sh -restarts mcv 2 < examples/test0.col
+./run.sh -restarts mcv 4 < examples/test1.col
+./run.sh -restarts mcv 4 < examples/test2.col
+./run.sh -restarts mcv 256 < examples/queen16_16.col
+./run.sh -restarts mcv 144 < examples/queen12_12.col
+./run.sh -restarts mcv 64 < examples/queen8_8.col
+./run.sh -restarts mcv 25 < examples/queen5_5.col
+./run.sh -restarts mcv 450 < examples/le450_15b.col
+./run.sh -restarts mcv 100 < examples/graph_100_03.col
+./run.sh -restarts mcv 1000 < examples/graph_1000_001.col
+./run.sh -restarts mcv 1000 < examples/graph_1000_01.col
+./run.sh -restarts mcv 32 < examples/graph_1000_01.col
+MCV K_GRAPHS FOLDER:
+./run.sh -restarts mcv 10 < k_graphs/k10
+./run.sh -restarts mcv 3 < k_graphs/k3
+./run.sh -restarts mcv 30 < k_graphs/k30
+./run.sh -restarts mcv 4 < k_graphs/k4
+./run.sh -restarts mcv 5 < k_graphs/k5
+./run.sh -restarts mcv 6 < k_graphs/k6
+./run.sh -restarts mcv 7 < k_graphs/k7
+./run.sh -restarts mcv 8 < k_graphs/k8
+./run.sh -restarts mcv 9 < k_graphs/k9

@@ -1,0 +1,78 @@
+DFS TESTS:
+./color-validator color-reference dfs 2 < examples/test0.col
+./color-validator color-reference dfs 4 < examples/test1.col
+./color-validator color-reference dfs 4 < examples/test2.col
+./color-validator color-reference dfs 25 < examples/queen5_5.col
+./color-validator color-reference dfs 64 < examples/queen8_8.col
+./color-validator color-reference dfs 144 < examples/queen12_12.col
+./color-validator color-reference dfs 256 < examples/queen16_16.col
+./color-validator color-reference dfs 450 < examples/le450_15b.col
+./color-validator color-reference dfs 100 < examples/graph_100_03.col
+./color-validator color-reference dfs 1000 < examples/graph_1000_001.col
+./color-validator color-reference dfs 1000 < examples/graph_1000_01.col
+./color-validator color-reference dfs 32 < examples/graph_1000_01.col
+DFS COMPLETE GRAPHS
+./color-validator color-reference dfs 10 < k_graphs/k10
+./color-validator color-reference dfs 3 < k_graphs/k3
+./color-validator color-reference dfs 30 < k_graphs/k30
+./color-validator color-reference dfs 4 < k_graphs/k4
+./color-validator color-reference dfs 5 < k_graphs/k5
+./color-validator color-reference dfs 6 < k_graphs/k6
+./color-validator color-reference dfs 7 < k_graphs/k7
+./color-validator color-reference dfs 8 < k_graphs/k8
+./color-validator color-reference dfs 9 < k_graphs/k9
+
+FC TESTS:
+./color-validator color-reference fc 2 < examples/test0.col
+./color-validator color-reference fc 4 < examples/test1.col
+./color-validator color-reference fc 4 < examples/test2.col
+./color-validator color-reference fc 25 < examples/queen5_5.col
+./color-validator color-reference fc 64 < examples/queen8_8.col
+./color-validator color-reference fc 144 < examples/queen12_12.col
+./color-validator color-reference fc 256 < examples/queen16_16.col
+./color-validator color-reference fc 450 < examples/le450_15b.col
+./color-validator color-reference fc 100 < examples/graph_100_03.col
+./color-validator color-reference fc 1000 < examples/graph_1000_001.col
+./color-validator color-reference fc 1000 < examples/graph_1000_01.col
+FC COMPLETE GRAPHS
+./color-validator color-reference fc 10 < k_graphs/k10
+./color-validator color-reference fc 3 < k_graphs/k3
+./color-validator color-reference fc 30 < k_graphs/k30
+./color-validator color-reference fc 4 < k_graphs/k4
+./color-validator color-reference fc 5 < k_graphs/k5
+./color-validator color-reference fc 6 < k_graphs/k6
+./color-validator color-reference fc 7 < k_graphs/k7
+./color-validator color-reference fc 8 < k_graphs/k8
+./color-validator color-reference fc 9 < k_graphs/k9
+
+MCV TESTS:
+./color-validator color-reference mcv 2 < examples/test0.col
+./color-validator color-reference mcv 4 < examples/test1.col
+./color-validator color-reference mcv 4 < examples/test2.col
+./color-validator color-reference mcv 25 < examples/queen5_5.col
+./color-validator color-reference mcv 64 < examples/queen8_8.col
+./color-validator color-reference mcv 144 < examples/queen12_12.col
+./color-validator color-reference mcv 256 < examples/queen16_16.col
+./color-validator color-reference mcv 450 < examples/le450_15b.col
+./color-validator color-reference mcv 100 < examples/graph_100_03.col
+./color-validator color-reference mcv 1000 < examples/graph_1000_001.col
+./color-validator color-reference mcv 1000 < examples/graph_1000_01.col
+./color-validator color-reference mcv 32 < examples/graph_1000_01.col
+MCV COMPLETE GRAPHS
+./color-validator color-reference mcv 10 < k_graphs/k10
+./color-validator color-reference mcv 3 < k_graphs/k3
+./color-validator color-reference mcv 30 < k_graphs/k30
+./color-validator color-reference mcv 4 < k_graphs/k4
+./color-validator color-reference mcv 5 < k_graphs/k5
+./color-validator color-reference mcv 6 < k_graphs/k6
+./color-validator color-reference mcv 7 < k_graphs/k7
+./color-validator color-reference mcv 8 < k_graphs/k8
+./color-validator color-reference mcv 9 < k_graphs/k9
+
+
+
+
+
+
+seeing what happens if ncolors>needed (still prints ncolors,idk how it handles it under the hood though)
+./color-reference dfs 50 < examples/queen5_5.col

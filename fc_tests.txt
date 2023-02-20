@@ -1,0 +1,25 @@
+FROM "EXAMPLES" FOLDER:
+
+./color-validator run.sh fc 2 < examples/test0.col
+./color-validator run.sh fc 4 < examples/test1.col
+./color-validator run.sh fc 4 < examples/test2.col
+./color-validator run.sh fc 256 < examples/queen16_16.col
+./color-validator run.sh fc 144 < examples/queen12_12.col
+./color-validator run.sh fc 64 < examples/queen8_8.col
+./color-validator run.sh fc 25 < examples/queen5_5.col
+./color-validator run.sh fc 450 < examples/le450_15b.col
+./color-validator run.sh fc 100 < examples/graph_100_03.col
+./color-validator run.sh fc 1000 < examples/graph_1000_001.col
+./color-validator run.sh fc 1000 < examples/graph_1000_01.col
+./color-validator run.sh fc 32 < examples/graph_1000_01.col
+
+COMPLETE GRAPH/K_GRAPHS FOLDER:
+./color-validator run.sh fc 10 < k_graphs/k10
+./color-validator run.sh fc 3 < k_graphs/k3
+./color-validator run.sh fc 30 < k_graphs/k30
+./color-validator run.sh fc 4 < k_graphs/k4
+./color-validator run.sh fc 5 < k_graphs/k5
+./color-validator run.sh fc 6 < k_graphs/k6
+./color-validator run.sh fc 7 < k_graphs/k7
+./color-validator run.sh fc 8 < k_graphs/k8
+./color-validator run.sh fc 9 < k_graphs/k9

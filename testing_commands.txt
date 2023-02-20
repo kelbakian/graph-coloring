@@ -1,0 +1,76 @@
+scp graph-coloring.py ke1066@agate.cs.unh.edu:cs830/a4
+scp color-validator ke1066@agate.cs.unh.edu:cs830/a4
+
+
+
+./color-validator run.sh dfs 5 < examples/test0.col
+./color-validator run.sh dfs 5 < examples/test1.col
+./color-validator run.sh dfs 5 < examples/test2.col
+./color-validator run.sh fc 5 < examples/test0.col
+./color-validator run.sh fc 5 < examples/test1.col
+./color-validator run.sh fc 5 < examples/test2.col
+./color-validator color-reference dfs 5 < examples/test2.col
+
+./color-reference dfs 5 < examples/test0.col
+./run.sh dfs 5 < examples/test0.col
+./run.sh dfs 5 < examples/test1.col
+./color-reference dfs 5 < examples/test1.col
+./color-reference dfs 5 < examples/test2.col
+./run.sh dfs 5 < examples/test2.col
+./color-reference dfs 3 < examples/test1.col
+./run.sh dfs 3 < examples/test1.col
+
+
+./run.sh fc 5 < examples/test0.col
+./color-reference fc 5 < examples/test0.col
+./run.sh fc 5 < examples/test1.col
+./color-reference fc 5 < examples/test1.col
+./run.sh fc 5 < examples/test2.col
+./color-reference fc 5 < examples/test2.col
+./run.sh fc 3 < examples/test1.col
+./color-reference fc 3 < examples/test1.col
+
+./run.sh mcv 5 < examples/test0.col
+./color-reference mcv 5 < examples/test0.col
+./run.sh mcv 5 < examples/test1.col
+./color-reference mcv 5 < examples/test1.col
+./run.sh mcv 5 < examples/test2.col
+./color-reference mcv 5 < examples/test2.col
+./run.sh mcv 3 < examples/test1.col
+./color-reference mcv 3 < examples/test1.col
+
+./color-validator run.sh mcv 5 < examples/test0.col
+./color-validator run.sh mcv 5 < examples/test1.col
+./color-validator run.sh mcv 3 < examples/test1.col
+./color-validator run.sh mcv 5 < examples/test2.col
+
+
+RESTART TESTS:
+./run.sh dfs -restarts 5 < examples/test0.col
+./run.sh dfs 5 < examples/test1.col
+./run.sh dfs 5 < examples/test2.col
+./run.sh dfs 3 < examples/test1.col
+
+
+
+LOCAL TESTS:
+python graph-coloring.py mcv 1000 < examples/graph_1000_01.col
+python graph-coloring.py fc 300 < examples/graph_1000_01.col
+python graph-coloring.py fc 1000 < examples/graph_1000_01.col
+python graph-coloring.py dfs 1000 < examples/graph_1000_01.col
+python graph-coloring.py dfs 300 < examples/graph_1000_01.col
+python graph-coloring.py dfs 1000 < examples/graph_1000_001.col
+python graph-coloring.py dfs 5 < examples/test0.col
+python graph-coloring.py dfs 5 < examples/test1.col
+python graph-coloring.py dfs 5 < examples/test2.col
+python graph-coloring.py dfs 3 < examples/test1.col
+
+python graph-coloring.py mcv 5 < examples/test0.col
+python graph-coloring.py mcv 5 < examples/test1.col
+python graph-coloring.py mcv 5 < examples/test2.col
+python graph-coloring.py mcv 5 < examples/queen12_12.col
+
+
+python graph-coloring.py -restarts dfs 5 < examples/test0.col
+python graph-coloring.py -restarts dfs 5 < examples/test1.col
+python graph-coloring.py -restarts dfs 5 < examples/test2.col
