@@ -4,10 +4,12 @@ import argparse
 import random as rand
 from collections import defaultdict
 
-sys.setrecursionlimit(1500)
 """Program to color a given graph using a given number of colors such
 that no two adjacent vertices have the same color, or prove that no
-such coloring is possible. Formulated and approached as a CSP."""
+such coloring is possible. Formulated and approached as a CSP.
+Outputs a coloring and the number of nodes branched"""
+
+sys.setrecursionlimit(1500)
 
 #vertices are numbered starting from 1, and nvertices/edges is known, so pre-define things for ease
 class Graph():
@@ -30,8 +32,8 @@ class CSP():
         self.ncolors = ncolors
         self.algo = algo
         self.X = frozenset(range(1,g.nvertices+1))
-        self.D = dict.fromkeys(self.X,set(range(1,ncolors+1)))
-        
+        self.D = defaultdict(set)
+        self.D.update((x,set(range(1,ncolors+1))) for x in self.X)
         self.restart_flag = restart_flag
         
 
@@ -54,12 +56,13 @@ class CSP():
     def dfs(self):
         if self.restart_flag: # geometric restarting strategy (Walsh,IJCAI-99)
             i = 0
+            n = 0
             while True:
                 cutoff = self.graph.nvertices * (1.3 ** i)
-                n, sol = self.backtrack({},0,cutoff)
+                n_iter, sol = self.backtrack({},0,cutoff)
+                n += n_iter
                 if sol == "restart":
                     i = i+1
-                    continue
                 else:
                     break
         else:
@@ -81,28 +84,32 @@ class CSP():
     
     #implements dfs,fc, and mcv
     def backtrack(self,assignment,n,cutoff=None):
+        #print(f"n={n}")
+        #print(f"assnt={assignment}")
         if len(assignment) == self.graph.nvertices:
             return n,assignment
         if cutoff is not None and n > cutoff:
             return n,"restart"
         var = self.select_unassigned_variable(assignment)
-        n += 1
+        #print(f'var={var}')
+        if len(self.D[var]) > 1: n += 1
         for value in self.D[var]:
             if self.is_consistent(var,value,assignment):
                 assignment[var] = value
                 if self.algo == "dfs":
-                    result = self.backtrack(assignment,n,cutoff)
-                    if result[1] is not None:
-                        return result
+                    n, result = self.backtrack(assignment,n,cutoff)
+                    if result is not None:
+                        return n, result
                 else:
                     inferences = self.inference(var,value,assignment)
                     if inferences is not None:
-                        # add the inferences to the CSP
-                        map(lambda v: self.D[v].remove(value),inferences)
-                        result = self.backtrack(assignment,n,cutoff)
-                        if result[1] is not None:
-                            return result
-                        # remove the inferences from the CSP
+                        # add the inferences to the CSP (aka remove values from domains)
+                        for adj_v in inferences:
+                            self.D[adj_v].remove(value)
+                        n, result = self.backtrack(assignment,n,cutoff)
+                        if result is not None:
+                            return n, result
+                        # remove the inferences from the CSP (aka add values back to domains)
                         for adj_v in inferences:
                             self.D[adj_v].add(value)
                 del assignment[var]
@@ -114,7 +121,7 @@ class CSP():
         if self.algo == "mcv":  # return a random var from the set of most-constrained-variables
             sub_domain = {k:self.D[k] for k in unassigned}
             mcv = min(map(len,sub_domain.values()))
-            if mcv == self.ncolors:
+            if mcv == self.ncolors: # if all vars have the full domain available skip extra work; return any var
                 return rand.choice(unassigned)
             choices = [k for k, v in sub_domain.items() if len(v) == mcv]
             return rand.choice(choices)
@@ -122,7 +129,7 @@ class CSP():
             return rand.choice(unassigned)
 
     def is_consistent(self,var,val,assignment):
-        """Check if the value is a legal assignment;
+        """Check if the value is a legal assignment,
         ie no constraint violations"""
         for v in self.graph.edges[var]:
             if v in assignment and assignment[v] == val:
@@ -131,15 +138,15 @@ class CSP():
 
     def inference(self,var,val,assignment):
         """implements forward checking; arc consistency
-        for a given variable"""
-        inferences = []
+        for a given variable. Returns the set of variables whose domain will be changed"""
+        inferences = set()
         for adj_v in self.graph.edges[var]:
             if adj_v not in assignment:
                 if val in self.D[adj_v]:
-                    if len(self.D[adj_v]) == 1:
+                    if len(self.D[adj_v]) == 1: # incomplete assignment
                         return None
                     else:
-                        inferences.append(adj_v)
+                        inferences.add(adj_v)
         return inferences
 
     
